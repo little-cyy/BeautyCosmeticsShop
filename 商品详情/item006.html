@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../index.css" />
+		<link rel="stylesheet" type="text/css" href="item.css" />
+		<link rel="stylesheet" type="text/css" href="../字体图标/iconfont.css" />
+	</head>
+	<body>
+		<header>
+		
+		</header>
+		<div style="height: 50px;"></div>
+		<div id='timer' class="count_down">
+		</div>
+
+		<div class="shangpin">
+			<div class="imga">
+				<img src="../img/006.jpg">
+			</div>
+			<div class="buy">
+				<h1 id="pname">香奈儿（Chanel）邂逅柔情淡香水50ml（礼盒装）粉邂逅 送女友 送老婆</h1>
+				<div class="price">
+					<div class="dt">售　　价</div>
+					<div class="dd">
+						<h1 id="jiage" style="color: #EB0065;">￥960</h1>
+
+					</div>
+				</div>
+				<div>
+					<div class="dt">促　　销</div>
+					<div class="dd">
+						<span style="background-color: #EB0065;color: white;padding: 4px;">运费包邮</span>
+						<span style="color: #EB0065;">活动商品买满800元，重量≤2000g，运费减20元</span>
+					</div>
+				</div>
+				<div>
+					<div class="dt">活　　动</div>
+					<div class="dd  huodong">
+						<span>香水直降，低至82折； <a href="">查看详情 >></a></span>
+						<span>人气护肤； <a href="">查看详情 >></a></span>
+						<span>热卖彩妆； <a href="">查看详情 >></a></span>
+						<span>精选洗护； <a href="">查看详情 >></a></span>
+						<span>心意套装； <a href="">查看详情 >></a></span>
+					</div>
+				</div>
+				<div>
+					<div class="dt">税　　费</div>
+					<div class="dd">
+						<span>该商品已含税，无需额外缴纳税费</span>
+					</div>
+				</div>
+				<div class="caozuo">
+					<div class="dt">数　　量</div>
+					<div class="dd">
+						<input type="button" name="" id="subtract" value="-" /><input type="text" id="value" value="1" /><input type="button" name="" id="add" value="+" />
+						<span>&nbsp;商品限购 5 件</span>
+					</div>
+				</div>
+				<div>
+					<button id="add_btu" type="button">加入购物车</button>
+					<a href="" style="color: #000000;"><span class="iconfont icon-02"> </span>收藏</a>
+				</div>
+			</div>
+
+
+		</div>
+
+		</div>
+
+
+
+
+
+		<footer>
+			<div id="nowtime"></div>
+			<div>
+				<p>
+					我们一直致力于让全球客户享受无障碍的轻松购物方式，无论是身在欧洲，还是亚洲，顾客都可以通过haitao网轻松购买到他们喜爱的化妆品。经过潜心准备，haitao中文官网于2020年6月正式上线，采用中文界面，支付宝/微信/银联付款，满80欧免邮中国，被税后可联系客服领取20欧元限时税费补贴券。特设中文客服邮箱进行售前售后服务，以期满足中国顾客个性化的购物需求。
+				</p>
+			</div>
+			<div>
+				<a href="">隐私政策</a>
+				<span>|</span>
+				<a href="">使用条款</a>
+				<span>|</span>
+				<a href="">无障碍</a>
+			</div>
+		</footer>
+
+	</body>
+	<script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var subtract=document.querySelector("#subtract");
+		var add=document.querySelector("#add");
+		var inp=document.getElementById("value");
+		console.log(value)
+		console.log(subtract)
+		subtract.addEventListener('click',function(){
+		if(inp.value==1){
+			inp.value=1;
+			subtract.className='on';
+		}else{
+			inp.value--;
+			subtract.className='';
+			add.className='';
+		}
+		})
+		add.addEventListener('click',function(){
+			if(inp.value==5){
+				inp.value=5;
+				add.className='on';
+			}else{
+				inp.value++;
+				add.className='';
+				subtract.className='';
+			}
+		});
+		
+		
+		$(document).ready(function() {
+				$('header').load('../header/header.html');
+		});
+		
+	</script>
+	<script src="../js/动态显示时间.js" type="text/javascript" charset="utf-8"></script>
+	<script src="item.js" type="text/javascript" charset="utf-8"></script>
+	
+</html>

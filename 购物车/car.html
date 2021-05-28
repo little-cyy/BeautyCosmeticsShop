@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的购物车</title>
+		<link rel="stylesheet" type="text/css" href="car.css" />
+	</head>
+	<body>
+
+		
+		</head>
+		<body>
+			<div class="header">
+				<div class="container">
+					<div class="header-logo">
+						<a class="logo ir" href="../index.html" title="haitaowang.com">haitao</a>
+					</div>
+					<div class="header-title" id="J_miniHeaderTitle">
+						<h2 style="font-size: 30px;">我的购物车</h2>
+					</div>
+
+				</div>
+
+				<div id="car" class="car">
+
+					<div class="head_row hid">
+						<div class="check left"> <i onclick="checkAll()">√</i></div>
+						<div class="img left"> 全选</div>
+						<div class="name left">商品名称</div>
+						<div class="price left">单价</div>
+						<div class="number left">数量</div>
+						<div class="subtotal left">小计</div>
+						<div class="ctrl left">操作</div>
+					</div>
+
+				</div>
+				<div id="sum_area">
+					<div id="pay">去结算</div>
+					<div id="pay_amout">合计：<span id="price_num">0</span>元</div>
+				</div>
+
+				<div id="box">
+					<h2 class="box_head"><span>买购物车中商品的人还买了</span></h2>
+					<ul>
+					</ul>
+				</div>
+
+		</body>
+		<script>
+				//提取数据放入购物车
+				var oBox = document.getElementById("box");
+				var oCar = document.getElementById("car");
+				var storage = window.localStorage;
+		
+				for (var i = 1; i <= 18; i++) {
+					k = i < 10 ? '0' + i : i;
+					var json = localStorage.getItem(k)
+					//一个字符串中解析出json对象
+					if(json){
+						var jsonObj = JSON.parse(json);
+						//console.log(jsonObj['0']['goods'])
+						//console.log(jsonObj['0']['num'])
+						var pronum = jsonObj['0']['goods'] * jsonObj['0']['num'];
+						// console.log(pronum)
+						var oDiv = document.createElement("div");
+						oDiv.className = "row hid";
+						oDiv.innerHTML += '<div class="check left"> <i class="i_check" id="pro'+k+'" onclick="i_check(id)" >√</i></div>';
+						oDiv.innerHTML += '<div class="img left"><img src="' + jsonObj['0']['url'] + '" width="80" height="80"></div>';
+						oDiv.innerHTML += '<div class="name left"><span>' + jsonObj['0']["pname"] + '</span></div>';
+						oDiv.innerHTML += '<div class="price left"><span>' + jsonObj['0']['goods'] + '元</span></div>';
+						oDiv.innerHTML +=
+							' <div class="item_count_i"><div class="num_count"><div class="count_d">-</div><div class="c_num">' + jsonObj[
+								'0']['num'] + '</div><div class="count_i">+</div></div> </div>'
+						oDiv.innerHTML += '<div class="subtotal left"><span>' + pronum + '元</span></div>'
+						oDiv.innerHTML += '<div  class="ctrl left" id="'+k+'" onclick="del(id)"><a >×</a></div>';
+						oCar.appendChild(oDiv);
+					}
+					
+				}
+				
+			
+		</script>
+		<script src="./car.js" type="text/javascript" charset="utf-8"></script>
+</html>
